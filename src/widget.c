@@ -119,6 +119,8 @@ static void set_rgb_leds(uint8_t color, uint16_t duration_ms) {
 // separate thread
 K_MSGQ_DEFINE(led_msgq, sizeof(struct blink_item), 16, 1);
 
+static void indicate_connectivity(void);
+
 static void indicate_connectivity_internal(void) {
     struct blink_item blink = {.duration_ms = CONFIG_RGBLED_WIDGET_CONN_BLINK_MS};
 
